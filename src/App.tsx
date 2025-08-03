@@ -2,7 +2,8 @@
 import './App.css'
 import { MyTaskBar } from './components/MyTaskBar'
 import { Navbar } from './components/Navbar'
-import { TaskCard } from './components/NewTask'
+import Testing from './test/testTask1'
+
 
 
 
@@ -12,11 +13,11 @@ function App() {
   return (
     <>
     <div className='flex'>
-      <Navbar/>
-      <MyTaskBar/>
-
+      {/* <Navbar/>
+      <MyTaskBar/> */}
+  <Testing/>
     </div>
-      {/* <TaskCard/> */}
+      
       
     </>
   )

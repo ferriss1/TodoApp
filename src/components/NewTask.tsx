@@ -73,16 +73,16 @@ const handleTagClick = (tag:string)=>{
 
 
 
-    return(
+    return(<>
 
     
-        <div className=" h-screen flex items-center justify-center bg-gray-100">
+        <div className=" flex items-center justify-center bg-gray-100">
 
         <button
         onClick={() => setIsOpen(true)}
         className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
       >
-        Open Login
+        New task
       </button>
 
   
@@ -158,6 +158,10 @@ const handleTagClick = (tag:string)=>{
         </div>
     </div>
         )}
+
+
+        
+    </div>
     <div className="flex justify-center pt-10">
         <h2 className="pr-23">Todo:</h2>
         {todos.map((todo)=>(
@@ -168,9 +172,15 @@ const handleTagClick = (tag:string)=>{
                 <h3>tags: {todo.tags}</h3>
 
             </div>
-        ))}
+      ))}
         </div>
-    </div>
+    </>
     )
-}
+
+
+    
+    
+  }
+  
+
 
