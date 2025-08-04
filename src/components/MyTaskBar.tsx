@@ -1,12 +1,12 @@
 import { Filter } from "../icons/FilterIcon";
 import { Search } from "../icons/SearchIcon";
-import { TaskCard } from "./NewTask";
+
 
 export function MyTaskBar(){
 
 
-    return(
-        <div className="p-4 w-screen ">
+    return(<> 
+        <div className="p-4 w-screen  border-b border-gray-300">
             {/* //newtask */}
             <div className="flex justify-between">
                 <div>
@@ -17,9 +17,7 @@ export function MyTaskBar(){
                 Manage your daily tasks and projects
             </p>
             </div>
-            <div>
-                <TaskCard/>
-            </div>
+            
             </div>
 
             <div className="flex gap-2 items-center">
@@ -37,5 +35,6 @@ export function MyTaskBar(){
                 </button>
             </div>
         </div>
+        </>
     )
 }
