@@ -2,6 +2,7 @@
 import './App.css'
 import { Navbar } from './components/Navbar'
 import { TaskCard } from './components/NewTask'
+import { Testing3 } from './test/Test3'
 
 
 
@@ -20,7 +21,7 @@ function App() {
       <Navbar/>
       <TaskCard/>
 
-      
+      {/* <Testing3/> */}
  
     </div>
       

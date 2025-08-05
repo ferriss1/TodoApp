@@ -109,27 +109,27 @@ import { PlusIcon } from "../icons/DotIcon";
 
     
           {isOpen && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center">
 
       
         
-          <div className="bg-gray-300 p-5 rounded-md">
+          <div className="bg-white p-5 rounded-md">
 
 
           <h1 className="flex font-bold pb-4">Create New Task</h1>
 
       <div className=" justify-center items-center" >
           <div className="w-[446px] pb-4">
-              <h2 className="font-semibold text-slate-800 pb-2">Title</h2>
+              <h2 className="font-semibold text-slate-700 pb-2">Title</h2>
           <input  className=" border-2 rounded border-gray-200 focus:border-black p-2 outline-offset-4 outline-gray-400 w-full text-sm font-medium" type="text" placeholder="Enter Task Title.." value={title} onChange={(e)=>setTitle(e.target.value)}/>
           </div>
           <div>
-              <h2 className="font-semibold text-slate-800 pb-2">Description</h2>
+              <h2 className="font-semibold text-slate-700 pb-2">Description</h2>
           <input type="text"className=" border-2 rounded border-gray-200 focus:border-black p-2 outline-offset-4 outline-gray-400 w-full text-sm font-medium pb-10" placeholder="Add a Description.." value={description} onChange={(e)=>setDescription(e.target.value)}/>
           
           </div>
           <div>
-              <h2 className="font-semibold text-slate-800 pb-2">Subtask</h2>
+              <h2 className="font-semibold text-slate-700 pb-2">Subtask</h2>
           <input type="text" className="border-2 rounded border-gray-200 focus:border-black p-2 outline-offset-4 outline-gray-400 w-full text-sm font-medium pb-10" placeholder="subtask" value={subtask} onChange={(e)=>setSubtask(e.target.value)}/>
           </div>
           <input type="text" placeholder="tags" value={tagInput} onChange={(e)=>setTagInput(e.target.value)}/>
