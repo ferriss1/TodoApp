@@ -6,7 +6,7 @@ export function MyTaskBar(){
 
 
     return(<> 
-        <div className="p-4 w-screen  border-b border-gray-300">
+        <div className="p-4 w-full  border-b border-gray-300">
             {/* //newtask */}
             <div className="flex justify-between">
                 <div>

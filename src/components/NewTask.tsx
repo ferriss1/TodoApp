@@ -14,7 +14,7 @@ import { PlusIcon } from "../icons/DotIcon";
   }
 
 
-  const avaialableTags = ["work","urgent","shopping", "personal"]
+  const avaialableTags = ["Work","Urgent","Shopping", "Personal"]
 
   export function TaskCard(){
 
@@ -25,8 +25,8 @@ import { PlusIcon } from "../icons/DotIcon";
       const[title,setTitle] = useState("");
       const[description,setDescription] = useState("");
       const[subtask,setSubtask] = useState("");
-      const[tagInput,setTagInput] = useState("");
-      const[tags,setTags] = useState<string[]>([]);
+      // const[tagInput,setTagInput] = useState("");
+      // const[tags,setTags] = useState<string[]>([]);
       const [selectedTags,setSelectedTags] = useState<string[]>([]);
   
   //tag selevtion
@@ -63,7 +63,7 @@ import { PlusIcon } from "../icons/DotIcon";
         setTitle("");
         setDescription("");
         setSubtask("");
-        setTags([]);
+        // setTags([]);
         setSelectedTags([]);
 
         setIsOpen(false);
@@ -71,13 +71,13 @@ import { PlusIcon } from "../icons/DotIcon";
 
       //add a tag
 
-      const addtag = ()=>{
+      // const addtag = ()=>{
 
-          if(!tagInput) return;
-          setTags([...tags,tagInput]);
-          setTagInput("")
+      //     if(!tagInput) return;
+      //     setTags([...tags,tagInput]);
+      //     setTagInput("")
 
-      }
+      // }
       
 
 
@@ -87,16 +87,16 @@ import { PlusIcon } from "../icons/DotIcon";
 
       return(<>
      
-          <div className="">
+          <div className="w-[1650px]">
 
           <MyTaskBar/>
 
 
 
 
-          <div className="  items-center justify-center bg-gray-100">
+          <div className="  items-center justify-center bg-gray-100 shadow-lg">
         
-          <div className="p-5">
+          <div className="p-2 pl-6">
           
           <button
           onClick={() => setIsOpen(true)}
@@ -109,14 +109,14 @@ import { PlusIcon } from "../icons/DotIcon";
 
     
           {isOpen && (
-          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center  shadow-black">
 
       
         
-          <div className="bg-white p-5 rounded-md">
+          <div className="bg-white p-5 rounded-md w-[650px]">
 
 
-          <h1 className="flex font-bold pb-4">Create New Task</h1>
+          <h1 className="flex font-bold text-lg pb-4 font-sans tracking-tight">Create New Task</h1>
 
       <div className=" justify-center items-center" >
           <div className="w-[446px] pb-4">
@@ -128,12 +128,38 @@ import { PlusIcon } from "../icons/DotIcon";
           <input type="text"className=" border-2 rounded border-gray-200 focus:border-black p-2 outline-offset-4 outline-gray-400 w-full text-sm font-medium pb-10" placeholder="Add a Description.." value={description} onChange={(e)=>setDescription(e.target.value)}/>
           
           </div>
+          
+          {/* <input type="text" placeholder="tags" value={tagInput} onChange={(e)=>setTagInput(e.target.value)}/>
+          <button onClick={addtag}>Add tag</button> */}
+
+
+
+          <div style={{ margin: "10px 0" }}>
+            <div className="font-semibold text-slate-700 pb-2">Tags</div>
+            
+          {avaialableTags.map((tag) => (
+            <button
+              key={tag}
+               
+              onClick={() => handleTagClick(tag)}
+               className={`m-[5px] px-[13px] py-[8px] rounded-[6px] border text-sm font font-semibold shadow-sm ${
+               selectedTags.includes(tag)
+               ? " bg-zinc-800 text-white"
+               : "border-gray-200 bg-white hover:bg-gray-100"
+          }`}
+            >
+             
+              <div>
+
+              {tag}
+              </div>
+            </button>
+          ))}
+        </div>
           <div>
               <h2 className="font-semibold text-slate-700 pb-2">Subtask</h2>
-          <input type="text" className="border-2 rounded border-gray-200 focus:border-black p-2 outline-offset-4 outline-gray-400 w-full text-sm font-medium pb-10" placeholder="subtask" value={subtask} onChange={(e)=>setSubtask(e.target.value)}/>
+          <input type="text" className="border-2 rounded border-gray-200 focus:border-black p-2 outline-offset-4 outline-gray-400 w-full text-sm font-medium pb-10" placeholder="Add subtasks.." value={subtask} onChange={(e)=>setSubtask(e.target.value)}/>
           </div>
-          <input type="text" placeholder="tags" value={tagInput} onChange={(e)=>setTagInput(e.target.value)}/>
-          <button onClick={addtag}>Add tag</button>
 
 
   {/* newtags */}
@@ -150,29 +176,14 @@ import { PlusIcon } from "../icons/DotIcon";
           ))}
           </div> */}
 
-          <div style={{ margin: "10px 0" }}>
-          {avaialableTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => handleTagClick(tag)}
-              style={{
-                margin: "5px",
-                padding: "5px 10px",
-                borderRadius: "6px",
-                border: selectedTags.includes(tag)
-                  ? "2px solid green"
-                  : "1px solid gray",
-                background: selectedTags.includes(tag) ? "#d4f4d4" : "white",
-              }}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
 
-          <div className="flex">{tags.join(",")}</div>
-          <button className="pr-2" onClick={() => setIsOpen(false)}>Cancel  </button>
-          <button onClick={addTodo}  >Add to Do</button> 
+          {/* <div className="flex">{tags.join(",")}</div> */}
+          <div className="flex justify-end pt-3 gap-2">
+
+          <button className="p-2  border border-gray-200 pl-3 pr-3 rounded-md hover:bg-gray-100 shadow-sm" onClick={() => setIsOpen(false)}>Cancel  </button>
+          <button onClick={addTodo} className="p-2  border bg-zinc-800 text-white  pl-3 pr-3 rounded-md font-sans shadow-sm hover:bg-zinc-700" >Create Task</button> 
+
+          </div>
 
           
 
@@ -200,8 +211,10 @@ import { PlusIcon } from "../icons/DotIcon";
 
           {/* Render new component */}
 
-        
+        <div className="bg-gray-100 p-4 pl-7">
+
           <TodoList todos={todos} />
+        </div>
       </div>
       </>
       )

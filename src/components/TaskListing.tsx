@@ -12,19 +12,22 @@ interface TodoListProps {
 
 export function TodoList({ todos }: TodoListProps) {
   return (
-    <div className="flex flex-col items-center pt-10">
-      <h2 className="font-bold text-lg mb-4">Todo:</h2>
+    <div className="flex flex-col items-center ">
+     
       {todos.length === 0 && <p>No tasks yet...</p>}
       {todos.map((todo) => (
         <div
           key={todo.id}
-          className="bg-white shadow-md p-4 rounded-md mb-3 w-[300px]"
+          className="bg-white shadow-md p-4   rounded-md  w-full "
         >
-          <h3 className="font-bold">Title: {todo.title}</h3>
+          
+
+          <h3 className=" bg-green-200 text-gray-900 text-lg font-medium  font-sans ">{todo.title}</h3>
           <h3>Description: {todo.description}</h3>
           <h3>Subtask: {todo.subtask}</h3>
           <h3>Tags: {todo.tags.join(", ")}</h3>
-        </div>
+          </div>
+       
       ))}
     </div>
   );
